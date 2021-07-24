@@ -1,0 +1,29 @@
+Steps to validate user 
+
+1) Create User,Login or any table of your choice
+2) Create User model class with userid,username and password
+3) Create UserDAO and UserDAOImpl
+
+
+Inside UserDAOImpl 
+
+
+public boolean validateUser(User user)
+{
+	PrepearedStatement statement = connection.preprareStatement("select * from user where username = ? and password = ?");
+	statement.setString(1,login.getUsername());
+	statement.setString(2,login.getUsername());
+
+	ResultSet res = statement.executeQuery();
+
+	if(res.next())
+	{
+		//user is valid
+		return true;
+	}
+	else
+	{
+		//user is invalid
+		return true;
+	}
+}
